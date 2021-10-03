@@ -48,30 +48,63 @@ function comprarProducto(e){
 localStorage.setItem("carrito",JSON.stringify(carrito));
 
 // SALIDA PRODUCTO
-carritoUI(carrito);
+contadorCarrito(carrito);
 }
 
 
-// RENDERIZAR LA INTERFAZ DEL CARRITO
-function carritoUI(productos){
+// CONTAR PRODUCTOS COMPRADOS
+function contadorCarrito(productos){
 //$('#carritoCantidad').html(productos.length);
 
 $('#carritoCantidad').empty();
 $('#carritoCantidad').append(`<h3 id="contadorCarrito">${productos.length} --> </h3>
-<a href="#"><img src="Imagenes/carrito.png" alt="carrito de compras"></a>`);
+<a id="productosComprados"><img src="Imagenes/carrito.png" alt="carrito de compras"></a>`);
+}
 
+// RENDERIZAR INTERFAZ CARRITO
+function carritoUI(productos, id){
+	$(id).empty();
+
+	for(const producto of productos){
+		$(id).append((` <div class="card" style="width: 18rem;">
+						<h5> ${producto.nombre}</h5>
+						<img src="${producto.imagen}" alt="${producto.nombre}">
+						<div class="card-body">
+							<h5>$ ${producto.precio} </h5>
+							<span class="badge bg-dark">cantidad${producto.cantidad}</span>
+            				<span class="badge bg-success"> $ ${producto.subtotal()}</span>
+            				<a id="${producto.id}" class="btn btn-info btn-add">+</a>
+            				<a id="${producto.id}" class="btn btn-warning btn-sub">-</a>
+
+            				<a id="${producto.id}" class="btn btn-danger btn-delete">X</a>
+							
+						</div>
+						</div>
+					`))
+					}
+				}
+	
+	
+	 //Asociar evento a la interfaz generada
+	 //$(".btn-add").click(addCantidad);
+	 //$(".btn-delete").click(eliminarCarrito);
+
+
+
+
+
+// GENERAR ESTRUCTURA PRODUCTOS COMPRADOS
+function registroCarrito(producto){
+	return `<p> ${producto.nombre} 
+	<span class="badge bg-warning">$ ${producto.precio} </span>
+	<span class="badge bg-dark">${producto.cantidad}</span>
+	
+	</p>`
+}
 /*
-$('#carritoProductos').empty();
 
-for(const producto of productos){
-	$('#carritoProductos').append(registroCarrito(producto));
-}
-*/
- //Asociar evento a la interfaz generada
- //$(".btn-add").click(addCantidad);
- //$(".btn-delete").click(eliminarCarrito);
 
-}
+
 
 
 /*
@@ -86,16 +119,9 @@ function addCantidad(){
 }
 
 */
-/*
-// GENERAR ESTRUCTURA PRODUCTOS COMPRADOS
-function registroCarrito(producto){
-	return `<p> ${producto.nombre} 
-	<span class="badge bg-warning">$ ${producto.precio} </span>
-	<span class="badge bg-dark">${producto.cantidad}</span>
-	
-	</p>`
-}
-*/
+
+
+
 
 // FUNCION PARA RENDERIZAR EL MENU 
 function menuUI(lista,selector){

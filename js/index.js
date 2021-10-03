@@ -1,7 +1,7 @@
 
 
 $(document).ready(function(){
-    /*if("carrito" in localStorage){
+    if("carrito" in localStorage){
         
         const arrayLiterales = JSON.parse(localStorage.getItem("carrito"));
         for(const literal of arrayLiterales){
@@ -10,8 +10,8 @@ $(document).ready(function(){
         console.log(carrito);
         
     }
-    */
-    carritoUI(carrito);
+    
+    
 // CARGAR DATA DE ORIGEN LOCAL
 $.get("data/productos.json",function(datos,estado){
 	console.log(datos);
@@ -24,7 +24,27 @@ $.get("data/productos.json",function(datos,estado){
 	console.log(productos);
 	productosUI(productos,'#contenedorProductos');
 });
-    });
+
+// Ver CARRITO
+contadorCarrito(carrito);
+
+
+$('#productosComprados').on('click', function(){
+    
+    $('#carritoProductos').empty();
+    console.log(carrito)
+    $('#contenedorProductos').fadeOut(600,function(){
+        
+        carritoUI(carrito, '#carritoProductos');
+
+        $("#carritoProductos").fadeIn();
+    })
+   
+        
+});
+
+});
+
 /*
 // CREACION DE PRODUCTOS
 productos.push(new Producto(1,"PC1",50000,categorias[0],"MOTHER: am4 biostar - MICRO: amd A6-9500 3.8ghz - RAM: ddr4 8gb - DISCO: ssd 240gb","imagenes/pc1.jpg"));
@@ -44,7 +64,7 @@ menuUI(categorias, "#filtroCategorias");
 
 $('#filtroCategorias').change(function(e) {
     const value = this.value;
-
+    $('#carritoProductos').hide();
     $('#contenedorProductos').fadeOut(600, function(){
             const filtrados = productos.filter(producto => producto.categoria == value);
             productosUI(filtrados, '#contenedorProductos');
@@ -52,4 +72,6 @@ $('#filtroCategorias').change(function(e) {
         $("#contenedorProductos").fadeIn();
     })
 });
+
+
 

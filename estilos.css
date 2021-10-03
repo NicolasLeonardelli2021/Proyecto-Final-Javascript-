@@ -238,7 +238,12 @@ li{
 	color: white;
 }
 
-
+#carritoProductos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
 @media all and (min-width: 600px) and (max-width: 1023px){
 
 header,section,footer{
