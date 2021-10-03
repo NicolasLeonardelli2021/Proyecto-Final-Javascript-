@@ -1,0 +1,534 @@
+header,section,footer{
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+header {
+	
+	height: 60px;
+	
+	background-color:rgba(255, 255, 255,0.3);
+}
+
+body{
+	width: 100%
+
+}
+
+#inicio {	
+	height: 800px;
+	
+	}
+
+#servicios{
+	height: 850px;
+	
+}
+
+#insumos2{
+
+background-color: rgba(255, 255, 255, 0.7);
+}
+
+#contacto{
+	height: 800px;	
+}
+
+#titulo{
+	height: 100px;
+	background-color: rgba(0, 0, 255, 0.4);
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: rgba(255, 255, 255, 1);
+}
+
+#botonera{
+width: 400px;
+height: 60px;
+
+float: left;
+
+}
+
+#botonera ul, #submenu ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#botonera ul li ,#submenu ul li{
+	display: inline;
+}
+
+#botonera ul li a, #submenu ul li a{
+	text-decoration: none;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 15px 10px;
+display: inline-block;
+}
+
+#botonera ul li a:hover, #submenu ul li a:hover{
+	background-color: rgba(255, 255, 255, 0.5);
+color: rgba(0, 0, 255, 1);
+	font-size: 20px;
+}
+#iconos{
+	width: 300px;
+	height: 60px;
+	
+	float: right;
+}
+
+#texto1{
+	width: 660px;
+	height: 800px;
+	float: left;
+	background-color: rgba(215, 0, 0, 0.5);
+	box-sizing: border-box;
+}
+
+#imagenes{
+	width: 300px;
+	height: 800px;
+	
+	float: right;
+}
+
+#imagen1{
+	width: 300px;
+	height: 250px;
+	background-image: url(Imagenes/imagen1.jpg);
+	background-size: cover;
+}
+
+#imagen2{
+	width: 300px;
+	height: 250px;
+	background-image: url(Imagenes/imagen2.jpg);
+	background-size: cover;
+}
+
+#imagen3{
+	width: 300px;
+	height: 300px;
+	background-image: url(Imagenes/imagen3.jpg);
+	background-size: cover;
+
+}
+
+#imagenes2{
+	width: 300px;
+	height: 830px;
+	background-color: #66ff66;
+	float: left;
+}
+
+#imagen4{
+	width: 300px;
+	height: 220px;
+	background-image: url(Imagenes/imagen4.jpg);
+	background-size: cover;
+}
+#imagen5{
+	width: 300px;
+	height: 220px;
+	background-image: url(Imagenes/imagen5.jpg);
+	background-size: cover;
+}
+
+#imagen6{
+	width: 300px;
+	height: 220px;
+	background-image: url(Imagenes/imagen7.jpg);
+	background-size: cover;
+}
+#imagen7{
+	width: 300px;
+	height: 170px;
+	background-image: url(Imagenes/imagen6.jpg);
+	background-size: cover;
+}
+#texto2{
+	width: 650px;
+	height: 920;
+	background-color: rgba(215, 129, 44, 0.7);
+	float: right;
+	box-sizing: border-box;
+}
+
+#texto3{
+	width: 960px;
+	height: 50px;
+	background-color: rgba(0, 255, 0, 0.5);
+	
+}
+#submenu{
+	width: 960px;
+	height: 50px;
+	background-color: rgba(0, 90, 0, 0.6)
+}
+
+
+footer {
+	height: 200px;
+	background-color: #000000;
+}
+
+h1 {
+	text-align: center;
+	font-size: 300%;
+	padding: 20px;
+	box-sizing: border-box;
+
+}
+
+
+h2 {
+ text-align: center;
+
+}
+
+p {
+	text-align: justify;
+}
+
+h2,p{
+	color: rgba(255, 255, 255, 1);
+    font-size: 15PX;
+    padding: 5PX;
+}
+li{
+	color: #ffffff;
+}
+
+.caja{
+	height: 350px;
+}
+
+.divSuperior{
+	height: 20px;
+}
+
+/*.divImagen{
+	height: 150px;
+}
+*/
+.divBotones{
+	
+	height: 20px;
+}
+
+#contenedorProductos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	
+}
+
+#carritoCantidad{
+	display: flex;
+	justify-content: right;
+	flex-wrap: wrap;
+}
+
+#contadorCarrito{
+	color: white;
+}
+
+
+@media all and (min-width: 600px) and (max-width: 1023px){
+
+header,section,footer{
+	width: 580px;
+	
+
+}
+
+
+
+
+
+
+
+/*#iconos{
+	width: 300px;
+	height: 60px;
+	
+	float: right;
+}*/
+
+#texto1{
+	width: 580px;	
+}
+
+#imagenes{
+	width: 580px;
+	height: 250px;
+}
+
+#imagen1{
+	width:0px;
+	height:0px;
+	background-image: none;
+}
+#imagen2{
+	width: 290px;
+	height: 250px;
+	background-image: url(Imagenes/imagen2.jpg);
+	background-size: cover;
+	float: left;
+}
+
+#imagen3{
+	width: 290px;
+	height: 250px;
+	background-image: url(Imagenes/imagen3.jpg);
+	background-size: cover;
+float: left;
+}
+
+#imagenes2{
+	width: 580px;
+	height: 220px;
+	
+	float: left;
+}
+
+#servicios{
+	height: 1380px;
+}
+#imagen4{
+	width: 290px;
+	float:  left;
+}
+#imagen5{
+	width:0px;
+	height:0px;
+	background-image: none;
+	
+}
+
+#imagen6{
+	width: 290px;
+	float: left;
+}
+#imagen7{
+	width:0px;
+	height: 0px;
+	background-image: none;
+	
+}
+
+#texto2{
+	width: 580px;
+	height: 920;
+	background-color: rgba(215, 129, 44, 0.7);
+	float: right;
+	box-sizing: border-box;
+}
+
+#texto3{
+	width: 580px;
+	height: 50px;
+	background-color: rgba(0, 255, 0, 0.5);
+	
+}
+#texto4{
+	width: 580px;
+	height: 30px;
+	color: #ff0000;
+	background-color: rgba(0, 255, 0, 0.5);
+	
+}
+#insumos2{
+	height: 1000px;
+}
+#insumo1{
+	width: 280px;
+	margin: 5px;
+}
+#insumo2{
+width: 280px;
+	margin: 5px;
+}
+#insumo3{
+	width: 280px;
+	margin: 5px;
+}
+#insumo4{
+	width: 280px;
+	margin: 5px;
+}
+#insumo5{
+	width: 280px;
+	margin: 5px;
+}
+#insumo6{
+width: 280px;
+	margin: 5px;
+}
+
+#caja{
+	width: 580px;
+	
+	
+}
+
+
+
+
+
+}/* fin media */
+
+@media all and (min-width: 320px) and (max-width: 599px){
+
+header,section,footer{
+	width: 300px;
+	
+
+}
+
+h1{
+	font-size: 30px;
+}
+
+p{
+	font-size: 12px;
+}
+
+h2{
+	font-size: 18px;
+}
+#titulo{
+	height: 70px;
+}
+
+#botonera{
+	font-size:15px;
+	height: 10px;
+}
+#botonera ul li a:hover{
+font-size: 16px;
+	}
+
+
+/*#iconos{
+	width: 300px;
+	height: 60px;
+	
+	float: right;
+}*/
+
+#texto1{
+	width: 300px;	
+}
+
+#imagenes{
+	width: 300px;
+	height: 250px;
+}
+
+#imagen1{
+	width:0px;
+	height:0px;
+	background-image: none;
+}
+#imagen2{
+	width: 0px;
+	height: 0px;
+	background-image: none;
+	
+}
+
+#imagen3{
+	width: 290px;
+	height: 250px;
+	background-image: url(Imagenes/imagen3.jpg);
+	background-size: cover;
+float: left;
+}
+
+#imagenes2{
+	width: 300px;
+	height: 220px;
+	
+	float: left;
+}
+
+#servicios{
+	height: 1400px;
+}
+#imagen4{
+	width: 300px;
+	float:  left;
+}
+#imagen5{
+	width:0px;
+	height:0px;
+	background-image: none;
+	
+}
+
+#imagen6{
+	width: 300px;
+	float: left;
+}
+#imagen7{
+	width:0px;
+	height: 0px;
+	background-image: none;
+	
+}
+
+#texto2{
+	width: 300px;
+	height: 920;
+	background-color: rgba(215, 129, 44, 0.7);
+	float: right;
+	box-sizing: border-box;
+}
+
+#texto3{
+	width: 300px;
+	height: 50px;
+	background-color: rgba(0, 255, 0, 0.5);
+	
+}
+#insumos2{
+	height: 2000px;
+}
+#insumo1{
+	width: 280px;
+	margin: 5px;
+}
+#insumo2{
+width: 280px;
+	margin: 5px;
+}
+#insumo3{
+	width: 280px;
+	margin: 5px;
+}
+#insumo4{
+	width: 280px;
+	margin: 5px;
+}
+#insumo5{
+	width: 280px;
+	margin: 5px;
+}
+#insumo6{
+width: 280px;
+	margin: 5px;
+}
+
+#caja{
+	width: 300px;
+	
+	
+}
+
+}

@@ -1,0 +1,43 @@
+
+
+#contenedor{
+	background-color: #2CA4F5;
+	height: 530px;
+
+}
+#titulo{
+	background-color: 84, 24, 222;
+text-align: center;
+	height: 50px;
+}
+
+#contenido{
+background-color: #C92F13;
+height: 480px;
+}
+
+#pie{
+background-color: #DD2CF5;
+height: 50px;
+}
+
+#col1{
+	background-color: #10F1E0;
+	
+	
+}
+#col2{
+	background-color: #C1C913;
+
+}
+
+input, textarea{
+	margin-bottom: 10px;
+}
+
+.boton{
+	background-color: #D6C81D;
+}
+h1{
+	text-align: center;
+}
