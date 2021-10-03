@@ -2,12 +2,12 @@
 
 // CLASE PRODUCTO
 class Producto{
-	constructor(id,nombre,precio,categoria,descripcion,imagen,cantidad){
+	constructor(id,nombre,precio,categoria,cantidad,imagen){
 		this.id = parseInt(id);
 		this.nombre = nombre;
 		this.precio = parseFloat(precio);
 		this.categoria = categoria;
-        this.cantidad = cantidad || 1;
+        this.cantidad = parseInt(cantidad);
 		//this.descripcion = descripcion;
 		this.imagen = imagen;
 		

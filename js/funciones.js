@@ -8,11 +8,11 @@ function productosUI(productos, id){
 	for(const producto of productos){
 		$(id).append((` <div class="card" style="width: 18rem;">
 						<h5> ${producto.nombre}</h5>
-						<img src="${producto.imagen}" alt="pc 1">
+						<img src="${producto.imagen}" alt="${producto.nombre}">
 						<div class="card-body">
-							<h5> ${producto.precio} </h5>
+							<h5>$ ${producto.precio} </h5>
 							<a href="" id='${producto.id}' class="btn btn-primary btn-compra">COMPRAR</a>
-							<a href="#" class="btn btn-primary btn-compra">Mas Info</a>		
+							<span class="badge bg-warning">Disponibles: ${producto.cantidad}</span>
 						</div>
 						</div>
 					`))
@@ -51,7 +51,7 @@ localStorage.setItem("carrito",JSON.stringify(carrito));
 carritoUI(carrito);
 }
 
-/*
+
 // RENDERIZAR LA INTERFAZ DEL CARRITO
 function carritoUI(productos){
 //$('#carritoCantidad').html(productos.length);
@@ -60,19 +60,20 @@ $('#carritoCantidad').empty();
 $('#carritoCantidad').append(`<h3 id="contadorCarrito">${productos.length} --> </h3>
 <a href="#"><img src="Imagenes/carrito.png" alt="carrito de compras"></a>`);
 
+/*
 $('#carritoProductos').empty();
 
 for(const producto of productos){
 	$('#carritoProductos').append(registroCarrito(producto));
 }
-
+*/
  //Asociar evento a la interfaz generada
- $(".btn-add").click(addCantidad);
+ //$(".btn-add").click(addCantidad);
  //$(".btn-delete").click(eliminarCarrito);
 
 }
 
-*/
+
 /*
 //MANEJADOR PARA AGREGAR CANTIDAD
 function addCantidad(){

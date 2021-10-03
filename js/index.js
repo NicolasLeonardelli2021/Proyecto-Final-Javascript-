@@ -8,16 +8,17 @@ $(document).ready(function(){
             carrito.push(new Producto(literal.id, literal.nombre, literal.precio,literal.categoria,literal.cantidad,literal.imagen));
         }
         console.log(carrito);
-        //carritoUI(carrito);
+        
     }
     */
+    carritoUI(carrito);
 // CARGAR DATA DE ORIGEN LOCAL
 $.get("data/productos.json",function(datos,estado){
 	console.log(datos);
 	console.log(estado);
 	if(estado == "success"){
 		for(const literal of datos){
-			productos.push(new Producto(literal.id, literal.nombre, literal.precio,literal.categoria,literal.cantidad,literal.imagen));
+			productos.push(new Producto(literal.id, literal.nombre, literal.precio,literal.categoria,literal.cant,literal.imagen));
 		}
 	}
 	console.log(productos);
