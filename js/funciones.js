@@ -61,6 +61,15 @@ $('#carritoCantidad').append(`<h3 id="contadorCarrito">${productos.length} --> <
 <a id="productosComprados"><img src="Imagenes/carrito.png" alt="carrito de compras"></a>`);
 }
 
+function totalesUI(){
+	$('#notificaciones').append(`<div>
+	<h5> TOTAL ${totalCarrito(carrito)} </h5>
+	<button id="btnConfirmar" class="btn btn-success>CONFIRMAR</button>
+	<a id="btnConfirmar" class="btn btn-info btn-add">Confirmar</a></div>`)
+
+	$("#btnConfirmar").click(confirmarCompra);
+}
+
 // RENDERIZAR INTERFAZ CARRITO
 function carritoUI(productos, id){
 	$(id).empty();
@@ -71,57 +80,62 @@ function carritoUI(productos, id){
 						<img src="${producto.imagen}" alt="${producto.nombre}">
 						<div class="card-body">
 							<h5>$ ${producto.precio} </h5>
-							<span class="badge bg-dark">cantidad${producto.cantidad}</span>
+							<span class="badge bg-dark">${producto.cantidad}</span>
             				<span class="badge bg-success"> $ ${producto.subtotal()}</span>
             				<a id="${producto.id}" class="btn btn-info btn-add">+</a>
             				<a id="${producto.id}" class="btn btn-warning btn-sub">-</a>
-
             				<a id="${producto.id}" class="btn btn-danger btn-delete">X</a>
 							
 						</div>
 						</div>
 					`))
 					}
+					$(".btn-add").click(addCantidad);
+    				$(".btn-delete").click(eliminarCarrito);
+    				$(".btn-sub").click(subCantidad);
+    				
 				}
 	
 	
-	 //Asociar evento a la interfaz generada
-	 //$(".btn-add").click(addCantidad);
-	 //$(".btn-delete").click(eliminarCarrito);
+//MANEJADOR PARA ELIMINAR PRODUCTO
+function eliminarCarrito(e){
+    //console.log(e.target.id);
+    let posicion = carrito.findIndex(p => p.id == e.target.id);
+    carrito.splice(posicion,1);
 
+    carritoUI(carrito, '#carritoProductos');
 
-
-
-
-// GENERAR ESTRUCTURA PRODUCTOS COMPRADOS
-function registroCarrito(producto){
-	return `<p> ${producto.nombre} 
-	<span class="badge bg-warning">$ ${producto.precio} </span>
-	<span class="badge bg-dark">${producto.cantidad}</span>
-	
-	</p>`
+    localStorage.setItem("carrito",JSON.stringify(carrito));
+	contadorCarrito(carrito);
 }
-/*
 
-
-
-
-
-/*
 //MANEJADOR PARA AGREGAR CANTIDAD
 function addCantidad(){
     let producto = carrito.find(p=> p.id == this.id);
     producto.agregarCantidad(1);
-    $(this).parent().children()[1].innerHTML = producto.cantidad;
+    $(this).parent().children()[1].innerHTML =  producto.cantidad;
+    $(this).parent().children()[2].innerHTML = "$ " + producto.subtotal();
+
 
     //Guardar en storage
     localStorage.setItem("carrito",JSON.stringify(carrito));
 }
 
-*/
+//MANEJADOR PARA RESTAR CANTIDAD
+function subCantidad(){
+    let producto = carrito.find(p=> p.id == this.id);
 
+    if(producto.cantidad > 1){
+        producto.agregarCantidad(-1);
 
-
+        let registroUI = $(this).parent().children();
+        registroUI[1].innerHTML = producto.cantidad;
+        registroUI[2].innerHTML = "$ " + producto.subtotal();
+    
+    //Guardar EN STORAGE 
+    localStorage.setItem("carrito",JSON.stringify(carrito));
+    }
+}
 
 // FUNCION PARA RENDERIZAR EL MENU 
 function menuUI(lista,selector){
@@ -134,3 +148,39 @@ function menuUI(lista,selector){
 	});
 }
 
+// FUNCION TOTAL CARRITO
+function totalCarrito(carrito){
+    console.log(carrito);
+    let total = 0;
+    carrito.forEach(p=>total += p.subtotal());
+    return total.toFixed(2);
+}
+
+// FUNCION PARA ENVIAR EL BACKEND
+function confirmarCompra(){
+	const URLPOST = "http://jsonplaceholder.typicode.com/posts";
+
+	// info a enviar
+	const DATA = {productos: JSON.stringify(carrito), total: totalCarrito(carrito)}
+
+	// Peticion post con ajax
+	$.post(URLPOST,DATA, function(respuesta,estado){
+		if(estado == 'success'){
+			$("#notificaciones").html(`<div class="alert alert-sucess alert-dismissible fade show" role="alert">
+			<strong> COMPRA CONFIRMADA! </strong>
+			</div>
+			`).fadeIn().delay(2000);
+
+			// Vaciar carrito
+
+			carrito.splice(0,carrito.length);
+
+			localStorage.setItem("carrito",'[]');
+
+			$('#carritoProductos').empty();
+
+			contadorCarrito(carrito);
+			
+		}
+	})
+}

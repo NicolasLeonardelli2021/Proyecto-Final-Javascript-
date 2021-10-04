@@ -30,7 +30,10 @@ contadorCarrito(carrito);
 
 
 $('#productosComprados').on('click', function(){
-    
+    $('#contenedorProductos').fadeOut();
+    totalesUI();
+    carritoUI(carrito, '#carritoProductos');
+    /*
     $('#carritoProductos').empty();
     console.log(carrito)
     $('#contenedorProductos').fadeOut(600,function(){
@@ -39,9 +42,10 @@ $('#productosComprados').on('click', function(){
 
         $("#carritoProductos").fadeIn();
     })
-   
+   */
         
 });
+
 
 });
 
