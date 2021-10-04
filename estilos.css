@@ -22,7 +22,7 @@ body{
 	}
 
 #servicios{
-	height: 850px;
+	height: 720px;
 	
 }
 
@@ -194,7 +194,12 @@ p {
 	text-align: justify;
 }
 
-h2,p{
+h2{
+	color: white;
+	text-align: center;
+}
+
+p{
 	color: rgba(255, 255, 255, 1);
     font-size: 15PX;
     padding: 5PX;
@@ -244,6 +249,31 @@ li{
 	align-items: center;
 	flex-wrap: wrap;
 }
+
+#notificaciones{
+	background-color: rgba(16, 61, 16, 0.514);
+}
+
+#total{
+	color: white;
+	font-size: 30px;
+}
+
+#divtotal{
+	text-align: center;
+}
+
+#btnConfirmar{
+	text-align: center;
+	width: 100%;
+}
+
+#confirmar{
+	color: white;
+	font-size: 20px;
+	
+}
+
 @media all and (min-width: 600px) and (max-width: 1023px){
 
 header,section,footer{

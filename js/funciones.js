@@ -54,18 +54,17 @@ contadorCarrito(carrito);
 
 // CONTAR PRODUCTOS COMPRADOS
 function contadorCarrito(productos){
-//$('#carritoCantidad').html(productos.length);
-
 $('#carritoCantidad').empty();
 $('#carritoCantidad').append(`<h3 id="contadorCarrito">${productos.length} --> </h3>
-<a id="productosComprados"><img src="Imagenes/carrito.png" alt="carrito de compras"></a>`);
+<a href="#insumos2" id="productosComprados"><img src="Imagenes/carrito.png" alt="carrito de compras"></a>
+`);
 }
 
 function totalesUI(){
-	$('#notificaciones').append(`<div>
-	<h5> TOTAL ${totalCarrito(carrito)} </h5>
-	<button id="btnConfirmar" class="btn btn-success>CONFIRMAR</button>
-	<a id="btnConfirmar" class="btn btn-info btn-add">Confirmar</a></div>`)
+	$('#notificaciones').empty();
+	$('#notificaciones').append(`<div class="d-inline" id="divtotal">
+	<h5 id="total"> TOTAL ${totalCarrito(carrito)} </h5>
+	<a type="button" id="btnConfirmar" class="btn btn-primary">CONFIRMAR</a></div>`)
 
 	$("#btnConfirmar").click(confirmarCompra);
 }
@@ -107,6 +106,7 @@ function eliminarCarrito(e){
 
     localStorage.setItem("carrito",JSON.stringify(carrito));
 	contadorCarrito(carrito);
+	totalesUI();
 }
 
 //MANEJADOR PARA AGREGAR CANTIDAD
@@ -119,6 +119,7 @@ function addCantidad(){
 
     //Guardar en storage
     localStorage.setItem("carrito",JSON.stringify(carrito));
+	totalesUI();
 }
 
 //MANEJADOR PARA RESTAR CANTIDAD
@@ -131,9 +132,10 @@ function subCantidad(){
         let registroUI = $(this).parent().children();
         registroUI[1].innerHTML = producto.cantidad;
         registroUI[2].innerHTML = "$ " + producto.subtotal();
-    
+		totalesUI();
     //Guardar EN STORAGE 
     localStorage.setItem("carrito",JSON.stringify(carrito));
+	
     }
 }
 
@@ -146,6 +148,7 @@ function menuUI(lista,selector){
         $(selector).append(`<option value"${element}">${element}</option>`)
 		
 	});
+	$(selector).prepend(`<option value="TODOS" selected>TODOS</option>`);
 }
 
 // FUNCION TOTAL CARRITO
@@ -167,7 +170,7 @@ function confirmarCompra(){
 	$.post(URLPOST,DATA, function(respuesta,estado){
 		if(estado == 'success'){
 			$("#notificaciones").html(`<div class="alert alert-sucess alert-dismissible fade show" role="alert">
-			<strong> COMPRA CONFIRMADA! </strong>
+			<strong id="confirmar"> COMPRA CONFIRMADA! </strong>
 			</div>
 			`).fadeIn().delay(2000);
 
